@@ -5,7 +5,7 @@ from CMS DE-SynPUF synthetic Medicare claims (~395k synthetic beneficiaries)
 joined to public reference data (ACS, EPA PM₂.₅ / ozone LUR, NLCD, CDC SVI,
 LandScan, WorldPop, EPA Walkability Index).
 
-**Browse the atlas → https://axleinfo.github.io/desynpuf-atlas/**
+**Browse the atlas → https://afpoley.github.io/desynpuf-atlas/**
 
 ## What's here
 
