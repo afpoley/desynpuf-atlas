@@ -88,9 +88,9 @@
 <h1>DE-SynPUF Atlas</h1>
 <p class='tagline'>Population &amp; environmental choropleths at H3 res-4 and ZIP5, overlaid with DE-SynPUF beneficiary exposure distributions. Built from <a href='https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files'>CMS DE-SynPUF</a> synthetic Medicare claims joined to public reference data via the <a href='https://github.com/axleinfo/desynpuf-zip'>desynpuf-link</a> pipeline.</p>
 <div class='meta'>
-<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 9 (acs, pm25_lur, ozone_lur, aqs, landscan, worldpop, svi, walkability, nlcd) · <strong>Maps:</strong> 146 on disk (0 rendered this run, 156 skipped, 0 failed)
+<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 8 (acs, pm25_lur, ozone_lur, aqs, landscan, gridmet, walkability, nlcd) · <strong>Maps:</strong> 162 on disk (0 rendered this run, 162 skipped, 0 failed)
 </div>
-<div class='meta'><strong>Generated:</strong> 2026-06-05 17:38 UTC</div>
+<div class='meta'><strong>Generated:</strong> 2026-06-05 17:56 UTC</div>
 <div class='links'>
 <a href='manifest.csv'>manifest.csv</a>
 <a href='https://github.com/axleinfo/desynpuf-zip'>source pipeline</a>
@@ -102,8 +102,7 @@
 <a href='#src-ozone_lur'>Ozone Land-Use Regression</a>
 <a href='#src-aqs'>EPA Air Quality System (AQS)</a>
 <a href='#src-landscan'>LandScan Global (ORNL)</a>
-<a href='#src-worldpop'>WorldPop</a>
-<a href='#src-svi'>CDC Social Vulnerability Index</a>
+<a href='#src-gridmet'>gridMET</a>
 <a href='#src-walkability'>EPA Walkability Index</a>
 <a href='#src-nlcd'>NLCD National Land Cover Database</a>
 </div>
@@ -466,51 +465,79 @@
 </div>
 </div>
 </details>
-<details class='source' id='src-worldpop' open>
-<summary><span>WorldPop</span><span class='src-key'>worldpop</span></summary>
+<details class='source' id='src-gridmet' open>
+<summary><span>gridMET</span><span class='src-key'>gridmet</span></summary>
 <div class='src-body'>
-<p class='src-desc'>UN-adjusted 1 km gridded population, residence-based (where people live, not daytime ambient). Native 2018–2020 only; complementary to LandScan&#x27;s ambient figures.</p>
+<p class='src-desc'>University of Idaho&#x27;s gridMET surface meteorology, ~4 km daily grid aggregated to cone-level annual statistics. Each cone gets the across-cone mean of the per-cell daily statistic (e.g. ``tmmx_mean_mean`` = annual mean of daily maximum temperature). gridMET ships in SI units, so temperatures are Kelvin; we shift them by −273.15 to render Celsius on the colorbar.</p>
 <div class='grain-tabs'>
 <button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
 <div class='var-group'>
-<div class='var-header'>WorldPop population density (people/km²)<span class='col-key'>worldpop__pop_density</span></div>
+<div class='var-header'>Mean daily max temperature (°C)<span class='col-key'>gridmet__tmmx_mean_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2018.png' alt='WorldPop population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2019.png' alt='WorldPop population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2020.png' alt='WorldPop population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmx_mean_mean_2018.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmx_mean_mean_2018.png' alt='Mean daily max temperature (°C) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmx_mean_mean_2019.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmx_mean_mean_2019.png' alt='Mean daily max temperature (°C) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmx_mean_mean_2020.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmx_mean_mean_2020.png' alt='Mean daily max temperature (°C) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Mean daily min temperature (°C)<span class='col-key'>gridmet__tmmn_mean_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmn_mean_mean_2018.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmn_mean_mean_2018.png' alt='Mean daily min temperature (°C) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmn_mean_mean_2019.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmn_mean_mean_2019.png' alt='Mean daily min temperature (°C) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/tmmn_mean_mean_2020.png'><img loading='lazy' src='maps/h3_res4/gridmet/tmmn_mean_mean_2020.png' alt='Mean daily min temperature (°C) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Mean daily precipitation (mm)<span class='col-key'>gridmet__pr_mean_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/gridmet/pr_mean_mean_2018.png'><img loading='lazy' src='maps/h3_res4/gridmet/pr_mean_mean_2018.png' alt='Mean daily precipitation (mm) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/pr_mean_mean_2019.png'><img loading='lazy' src='maps/h3_res4/gridmet/pr_mean_mean_2019.png' alt='Mean daily precipitation (mm) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/pr_mean_mean_2020.png'><img loading='lazy' src='maps/h3_res4/gridmet/pr_mean_mean_2020.png' alt='Mean daily precipitation (mm) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Mean vapor pressure deficit (kPa)<span class='col-key'>gridmet__vpd_mean_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/gridmet/vpd_mean_mean_2018.png'><img loading='lazy' src='maps/h3_res4/gridmet/vpd_mean_mean_2018.png' alt='Mean vapor pressure deficit (kPa) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/vpd_mean_mean_2019.png'><img loading='lazy' src='maps/h3_res4/gridmet/vpd_mean_mean_2019.png' alt='Mean vapor pressure deficit (kPa) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/gridmet/vpd_mean_mean_2020.png'><img loading='lazy' src='maps/h3_res4/gridmet/vpd_mean_mean_2020.png' alt='Mean vapor pressure deficit (kPa) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
 <div class='var-group'>
-<div class='var-header'>WorldPop population density (people/km²)<span class='col-key'>worldpop__pop_density</span></div>
+<div class='var-header'>Mean daily max temperature (°C)<span class='col-key'>gridmet__tmmx_mean_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2018.png' alt='WorldPop population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2019.png' alt='WorldPop population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2020.png' alt='WorldPop population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-</div>
-</details>
-<details class='source' id='src-svi' open>
-<summary><span>CDC Social Vulnerability Index</span><span class='src-key'>svi</span></summary>
-<div class='src-body'>
-<p class='src-desc'>Census-tract rankings of social vulnerability published by the CDC, organised into four themes (socioeconomic, household composition, racial/ethnic minority, housing/transportation) plus an overall ranking. 2018 and 2020 vintages; CDC did not release a 2019 file.</p>
-<div class='grain-panel' data-grain='zip5'>
-<div class='var-group'>
-<div class='var-header'>SVI overall ranking (0–1)<span class='col-key'>svi__themes_rpl</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/svi/themes_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/themes_rpl_2018.png' alt='SVI overall ranking (0–1) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmx_mean_mean_2018.png'><img loading='lazy' src='maps/zip5/gridmet/tmmx_mean_mean_2018.png' alt='Mean daily max temperature (°C) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmx_mean_mean_2019.png'><img loading='lazy' src='maps/zip5/gridmet/tmmx_mean_mean_2019.png' alt='Mean daily max temperature (°C) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmx_mean_mean_2020.png'><img loading='lazy' src='maps/zip5/gridmet/tmmx_mean_mean_2020.png' alt='Mean daily max temperature (°C) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 <div class='var-group'>
-<div class='var-header'>SVI socioeconomic theme (0–1)<span class='col-key'>svi__theme1_rpl</span></div>
+<div class='var-header'>Mean daily min temperature (°C)<span class='col-key'>gridmet__tmmn_mean_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/svi/theme1_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/theme1_rpl_2018.png' alt='SVI socioeconomic theme (0–1) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmn_mean_mean_2018.png'><img loading='lazy' src='maps/zip5/gridmet/tmmn_mean_mean_2018.png' alt='Mean daily min temperature (°C) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmn_mean_mean_2019.png'><img loading='lazy' src='maps/zip5/gridmet/tmmn_mean_mean_2019.png' alt='Mean daily min temperature (°C) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/tmmn_mean_mean_2020.png'><img loading='lazy' src='maps/zip5/gridmet/tmmn_mean_mean_2020.png' alt='Mean daily min temperature (°C) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Mean daily precipitation (mm)<span class='col-key'>gridmet__pr_mean_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/gridmet/pr_mean_mean_2018.png'><img loading='lazy' src='maps/zip5/gridmet/pr_mean_mean_2018.png' alt='Mean daily precipitation (mm) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/pr_mean_mean_2019.png'><img loading='lazy' src='maps/zip5/gridmet/pr_mean_mean_2019.png' alt='Mean daily precipitation (mm) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/pr_mean_mean_2020.png'><img loading='lazy' src='maps/zip5/gridmet/pr_mean_mean_2020.png' alt='Mean daily precipitation (mm) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Mean vapor pressure deficit (kPa)<span class='col-key'>gridmet__vpd_mean_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/gridmet/vpd_mean_mean_2018.png'><img loading='lazy' src='maps/zip5/gridmet/vpd_mean_mean_2018.png' alt='Mean vapor pressure deficit (kPa) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/vpd_mean_mean_2019.png'><img loading='lazy' src='maps/zip5/gridmet/vpd_mean_mean_2019.png' alt='Mean vapor pressure deficit (kPa) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/gridmet/vpd_mean_mean_2020.png'><img loading='lazy' src='maps/zip5/gridmet/vpd_mean_mean_2020.png' alt='Mean vapor pressure deficit (kPa) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
