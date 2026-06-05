@@ -1,174 +1,307 @@
-<!doctype html><html><head>
-<meta charset='utf-8'><title>desynpuf-link viz atlas</title>
+<!doctype html><html lang='en'><head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>DE-SynPUF Atlas — Population & Environmental Maps</title>
 <style>
-      body { font: 14px/1.4 -apple-system, BlinkMacSystemFont, sans-serif;
-             margin: 16px; color:#222; }
-      h1 { margin: 0 0 8px 0; }
-      h2 { margin: 28px 0 6px 0; border-bottom: 2px solid #2E74B5;
-           color: #1F3864; padding-bottom: 4px; }
-      h3 { margin: 18px 0 6px 0; color: #444; font-weight: 600; }
-      .toc { margin: 8px 0 20px 0; }
+      body { font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif; margin: 0; color:#222; background: #FFF; }
+      .wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px 40px; }
+      header { border-bottom: 1px solid #DDD; padding-bottom: 18px;
+               margin-bottom: 20px; }
+      header h1 { margin: 0 0 6px 0; font-size: 28px; color: #1F3864; }
+      header .tagline { margin: 0 0 12px 0; color:#444; font-size: 15px;
+                        max-width: 880px; }
+      header .meta { font-size: 13px; color: #555; margin: 6px 0; }
+      header .meta strong { color: #222; }
+      header .links { font-size: 13px; margin-top: 6px; }
+      header .links a { color: #2E74B5; text-decoration: none;
+                        margin-right: 14px; }
+      header .links a:hover { text-decoration: underline; }
+      h2 { margin: 36px 0 10px 0; border-bottom: 2px solid #2E74B5;
+           color: #1F3864; padding-bottom: 4px; font-size: 22px; }
+      .toc { margin: 12px 0 4px 0; font-size: 13px; }
       .toc a { margin-right: 16px; color: #2E74B5; text-decoration: none; }
+      /* Collapsible per-source section */
+      details.source { margin: 18px 0; border: 1px solid #E0E0E0;
+                       border-radius: 6px; background: #FFF;
+                       overflow: hidden; }
+      details.source[open] { background: #FAFBFC; }
+      details.source > summary {
+          cursor: pointer; padding: 12px 16px;
+          background: #F0F4F9; list-style: none;
+          font-size: 18px; font-weight: 600; color: #1F3864;
+          display: flex; align-items: baseline; gap: 10px;
+          user-select: none;
+      }
+      details.source > summary::-webkit-details-marker { display: none; }
+      details.source > summary::before {
+          content: "▸"; color: #2E74B5; font-size: 14px;
+          transition: transform 0.15s ease; display: inline-block;
+      }
+      details.source[open] > summary::before { transform: rotate(90deg); }
+      details.source > summary .src-key {
+          font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+          font-size: 13px; font-weight: 500; color: #555;
+          background: #E8EDF3; padding: 2px 8px; border-radius: 4px;
+      }
+      details.source > .src-body { padding: 14px 16px 18px; }
+      .src-desc { color: #444; margin: 0 0 14px 0; max-width: 880px;
+                  font-size: 14px; line-height: 1.55; }
       .grid { display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-              gap: 12px; }
+              grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+              gap: 14px; }
       .card { border: 1px solid #DDD; border-radius: 6px; padding: 8px;
-              background: #FAFAFA; }
+              background: #FFF; }
       .card img { width: 100%; height: auto; display: block;
                   border-radius: 4px; background: #FFF; }
-      .card .meta { font-size: 12px; color: #555; margin-top: 6px; }
-      .summary { color: #555; margin-bottom: 12px; }
-    </style></head><body>
-<h1>desynpuf-link viz atlas</h1>
-<div class='summary'>96 rendered · 60 skipped · 0 failed <a href='manifest.csv'>(manifest.csv)</a></div>
+      .card .meta { font-size: 12px; color: #555; margin-top: 6px;
+                    line-height: 1.4; }
+      footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #DDD;
+               font-size: 12px; color: #777; }
+      footer a { color: #2E74B5; text-decoration: none; }
+    </style></head><body><div class='wrap'>
+<header>
+<h1>DE-SynPUF Atlas</h1>
+<p class='tagline'>Population &amp; environmental choropleths at H3 res-4 and ZIP5, overlaid with DE-SynPUF beneficiary exposure distributions. Built from <a href='https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files'>CMS DE-SynPUF</a> synthetic Medicare claims joined to public reference data via the <a href='https://github.com/axleinfo/desynpuf-zip'>desynpuf-link</a> pipeline.</p>
+<div class='meta'>
+<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 8 (acs, aqs, landscan, nlcd, ozone_lur, pm25_lur, walkability, worldpop) · <strong>Maps:</strong> 96 on disk (0 rendered this run, 156 skipped, 0 failed)
+</div>
+<div class='meta'><strong>Generated:</strong> 2026-06-05 16:48 UTC</div>
+<div class='links'>
+<a href='manifest.csv'>manifest.csv</a>
+<a href='https://github.com/axleinfo/desynpuf-zip'>source pipeline</a>
+</div>
 <div class='toc'>
+<strong>Jump to:</strong> 
 <a href='#h3_res4'>h3_res4</a>
 <a href='#zip5'>zip5</a>
 </div>
+</header>
 <h2 id='h3_res4'>h3_res4</h2>
-<h3>acs</h3>
+<details class='source' id='h3_res4--acs' open>
+<summary><span>American Community Survey (ACS)</span><span class='src-key'>acs</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Census Bureau 5-year demographic estimates, 2018–2024. Aggregated to cone polygons via population-weighted areal interpolation on the year-specific LandScan Global surface. Covers income, poverty, education, housing tenure, language, and health-insurance coverage.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2018.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2018 · [0 – 82]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2019.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2019 · [0 – 79]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020 · [0 – 76]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2018.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2018 · [3.2e+02 – 2.8e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2019.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2019 · [3e+02 – 3.1e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020 · [1.5e+02 – 3.2e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2018.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2018 · [1.5e+04 – 1.5e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2019.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2019 · [1.8e+04 – 1.7e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020 · [1.7e+04 – 1.7e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2018.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2018 · [1.5e+04 – 1.9e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2019.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2019 · [1.8e+04 – 2e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020 · [2.2e+04 – 1.5e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2018.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2018 · [0 – 97]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2019.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2019 · [0 – 97]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020 · [0 – 98]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2018.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2018 · [0.08 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2019.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2019 · [0.15 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2018.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2018 · [2.1e+03 – 1.3e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2019.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2019 · [3e+03 – 1.3e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020 · [4e+03 – 1.2e+05]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2018.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2018 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2019.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020 · [0 – 82]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2018.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2018.png' alt='total_population'></a><div class='meta'>total_population · 2018 · [0 – 5.6e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2019.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2019.png' alt='total_population'></a><div class='meta'>total_population · 2019 · [0 – 5.6e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2020.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020 · [0 – 5.6e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2018.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2018 · [0 – 45]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2019.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2019 · [0 – 48]</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020 · [0 – 68]</div></div>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2018.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2019.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2018.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2019.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2018.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2019.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2018.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2019.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2018.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2019.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2018.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2019.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2018.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2019.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2018.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2019.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2018.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2018.png' alt='total_population'></a><div class='meta'>total_population · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2019.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2019.png' alt='total_population'></a><div class='meta'>total_population · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2020.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2018.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2019.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020</div></div>
 </div>
-<h3>aqs</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--aqs' open>
+<summary><span>EPA Air Quality System (AQS)</span><span class='src-key'>aqs</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Direct monitor observations for PM₂.₅ and ozone, IDW-interpolated to cone level. Useful as a sanity check against the LUR products and for tracking compliance with NAAQS thresholds.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2018.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2018 · [0.029 – 0.056]</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2019.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2019 · [0.027 – 0.054]</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020 · [0.026 – 0.057]</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2018.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2018 · [3.4 – 16]</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2019.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2019 · [1.2 – 12]</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020 · [2.5 – 29]</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2018.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2019.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2018.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2019.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020</div></div>
 </div>
-<h3>landscan</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--landscan' open>
+<summary><span>LandScan Global (ORNL)</span><span class='src-key'>landscan</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Oak Ridge National Lab&#x27;s 1 km ambient-population grid. Captures daytime population (where people actually are, not just where they sleep). Year-specific 2018–2024 — the true yearly population surface used by the rest of the pipeline.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2018 · [0 – 5.2e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2019 · [0 – 5.2e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020 · [0 – 5.2e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2018 · [0 – 7.9e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2019 · [0 – 7.9e+06]</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020 · [0 – 7.9e+06]</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020</div></div>
 </div>
-<h3>nlcd</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--nlcd' open>
+<summary><span>NLCD National Land Cover Database</span><span class='src-key'>nlcd</span></summary>
+<div class='src-body'>
+<p class='src-desc'>USGS 30 m classified land cover, aggregated to cone-level coverage shares. The three broad classes here (developed / forest / cropland) cover ~80 % of the country between them.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2018.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2018 · [0 – 94]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2019.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2019 · [0 – 94]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020 · [0 – 94]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2018.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2018 · [0 – 98]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2019.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2019 · [0 – 98]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020 · [0 – 98]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2018.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2018 · [0 – 99]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2019.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2019 · [0 – 99]</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020 · [0 – 99]</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2018.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2019.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2018.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2019.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2018.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2019.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020</div></div>
 </div>
-<h3>ozone_lur</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--ozone_lur' open>
+<summary><span>Ozone Land-Use Regression</span><span class='src-key'>ozone_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual ground-level ozone exposure from the same LUR framework as PM₂.₅. NAAQS-relevant statistics (mean and 98th percentile) at the cone level.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2018 · [0.026 – 0.057]</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2019 · [0.026 – 0.055]</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020 · [0.027 – 0.057]</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2018 · [0.038 – 0.09]</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2019 · [0.039 – 0.085]</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020 · [0.039 – 0.095]</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020</div></div>
 </div>
-<h3>pm25_lur</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--pm25_lur' open>
+<summary><span>PM₂.₅ Land-Use Regression</span><span class='src-key'>pm25_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual fine-particulate-matter (PM₂.₅) exposure model calibrated from EPA AQS monitor observations with NLCD, road network, and traffic covariates. Higher effective resolution than monitor IDW alone; designed for studies that need stable annual exposure surfaces.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2018 · [1.6 – 53]</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2019 · [1.1 – 52]</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020 · [1.7 – 61]</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2018 · [4.9 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2019 · [4.2 – 75]</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020 · [4.6 – 1.9e+02]</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020</div></div>
 </div>
-<h3>walkability</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--walkability' open>
+<summary><span>EPA Walkability Index</span><span class='src-key'>walkability</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Smart Location Database walkability score, derived from intersection density, transit access, employment mix, and residential density. Static snapshot replicated across years (EPA&#x27;s 2018-ACS / 2017-LEHD vintage); good for cross-sectional contrast, not for trend analysis.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2018 · [1 – 19]</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2019 · [1 – 19]</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020 · [1 – 19]</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2018 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020 · [0 – 1e+02]</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020</div></div>
 </div>
-<h3>worldpop</h3>
+</div>
+</details>
+<details class='source' id='h3_res4--worldpop' open>
+<summary><span>WorldPop</span><span class='src-key'>worldpop</span></summary>
+<div class='src-body'>
+<p class='src-desc'>UN-adjusted 1 km gridded population, residence-based (where people live, not daytime ambient). Native 2018–2020 only; complementary to LandScan&#x27;s ambient figures.</p>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2018.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2018 · [0 – 5e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2019.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2019 · [0 – 5e+03]</div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020 · [0 – 5e+03]</div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2018.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2018</div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2019.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2019</div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020</div></div>
 </div>
+</div>
+</details>
 <h2 id='zip5'>zip5</h2>
-<h3>acs</h3>
+<details class='source' id='zip5--acs' open>
+<summary><span>American Community Survey (ACS)</span><span class='src-key'>acs</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Census Bureau 5-year demographic estimates, 2018–2024. Aggregated to cone polygons via population-weighted areal interpolation on the year-specific LandScan Global surface. Covers income, poverty, education, housing tenure, language, and health-insurance coverage.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020 · [99 – 3.5e+03]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020 · [5.3e+03 – 2.5e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_home_value_2020.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020 · [1.6e+04 – 2e+06]</div></div>
-<div class='card'><a href='maps/zip5/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020 · [57 – 2.6e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/total_population_2020.png'><img loading='lazy' src='maps/zip5/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020 · [0 – 9.4e+04]</div></div>
-<div class='card'><a href='maps/zip5/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020 · [0 – 63]</div></div>
+<div class='card'><a href='maps/zip5/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/median_home_value_2020.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/total_population_2020.png'><img loading='lazy' src='maps/zip5/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020</div></div>
 </div>
-<h3>aqs</h3>
+</div>
+</details>
+<details class='source' id='zip5--aqs' open>
+<summary><span>EPA Air Quality System (AQS)</span><span class='src-key'>aqs</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Direct monitor observations for PM₂.₅ and ozone, IDW-interpolated to cone level. Useful as a sanity check against the LUR products and for tracking compliance with NAAQS thresholds.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020 · [0.027 – 0.064]</div></div>
-<div class='card'><a href='maps/zip5/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020 · [2.3 – 32]</div></div>
+<div class='card'><a href='maps/zip5/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020</div></div>
+<div class='card'><a href='maps/zip5/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020</div></div>
 </div>
-<h3>landscan</h3>
+</div>
+</details>
+<details class='source' id='zip5--landscan' open>
+<summary><span>LandScan Global (ORNL)</span><span class='src-key'>landscan</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Oak Ridge National Lab&#x27;s 1 km ambient-population grid. Captures daytime population (where people actually are, not just where they sleep). Year-specific 2018–2024 — the true yearly population surface used by the rest of the pipeline.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020 · [0 – 1.8e+05]</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020 · [0 – 1.4e+05]</div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020</div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020</div></div>
 </div>
-<h3>nlcd</h3>
+</div>
+</details>
+<details class='source' id='zip5--nlcd' open>
+<summary><span>NLCD National Land Cover Database</span><span class='src-key'>nlcd</span></summary>
+<div class='src-body'>
+<p class='src-desc'>USGS 30 m classified land cover, aggregated to cone-level coverage shares. The three broad classes here (developed / forest / cropland) cover ~80 % of the country between them.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020 · [0 – 97]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020 · [0 – 99]</div></div>
+<div class='card'><a href='maps/zip5/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020</div></div>
+<div class='card'><a href='maps/zip5/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020</div></div>
+<div class='card'><a href='maps/zip5/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020</div></div>
 </div>
-<h3>ozone_lur</h3>
+</div>
+</details>
+<details class='source' id='zip5--ozone_lur' open>
+<summary><span>Ozone Land-Use Regression</span><span class='src-key'>ozone_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual ground-level ozone exposure from the same LUR framework as PM₂.₅. NAAQS-relevant statistics (mean and 98th percentile) at the cone level.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020 · [0.026 – 0.062]</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020 · [0.037 – 0.11]</div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020</div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020</div></div>
 </div>
-<h3>pm25_lur</h3>
+</div>
+</details>
+<details class='source' id='zip5--pm25_lur' open>
+<summary><span>PM₂.₅ Land-Use Regression</span><span class='src-key'>pm25_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual fine-particulate-matter (PM₂.₅) exposure model calibrated from EPA AQS monitor observations with NLCD, road network, and traffic covariates. Higher effective resolution than monitor IDW alone; designed for studies that need stable annual exposure surfaces.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020 · [1.7 – 40]</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020 · [4.4 – 2.1e+02]</div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020</div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020</div></div>
 </div>
-<h3>walkability</h3>
+</div>
+</details>
+<details class='source' id='zip5--walkability' open>
+<summary><span>EPA Walkability Index</span><span class='src-key'>walkability</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Smart Location Database walkability score, derived from intersection density, transit access, employment mix, and residential density. Static snapshot replicated across years (EPA&#x27;s 2018-ACS / 2017-LEHD vintage); good for cross-sectional contrast, not for trend analysis.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020 · [1 – 20]</div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020 · [0 – 1e+02]</div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020</div></div>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020</div></div>
 </div>
-<h3>worldpop</h3>
+</div>
+</details>
+<details class='source' id='zip5--worldpop' open>
+<summary><span>WorldPop</span><span class='src-key'>worldpop</span></summary>
+<div class='src-body'>
+<p class='src-desc'>UN-adjusted 1 km gridded population, residence-based (where people live, not daytime ambient). Native 2018–2020 only; complementary to LandScan&#x27;s ambient figures.</p>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020 · [0 – 5.9e+04]</div></div>
+<div class='card'><a href='maps/zip5/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020</div></div>
 </div>
-</body></html>
+</div>
+</details>
+<footer>Atlas figures &copy; Axle Informatics, licensed CC-BY-4.0. Pipeline: <a href='https://github.com/axleinfo/desynpuf-zip'>axleinfo/desynpuf-zip</a>. Underlying data: see source-specific licenses in <a href='https://github.com/axleinfo/terrafusion'>axleinfo/terrafusion</a>.</footer>
+</div></body></html>
