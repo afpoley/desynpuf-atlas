@@ -58,15 +58,28 @@
       .grain-tab.active { background: #FFF; color: #1F3864;
                           font-weight: 600; border-bottom: 1px solid #FFF; }
       .grain-tab:hover:not(.active) { background: #E8E8E8; }
+      /* Per-variable group within a grain panel */
+      .var-group { margin: 18px 0 22px 0; }
+      .var-group:first-child { margin-top: 4px; }
+      .var-header { font-size: 15px; font-weight: 600; color: #1F3864;
+                    margin: 0 0 8px 0; padding-bottom: 4px;
+                    border-bottom: 1px solid #E8EDF3; }
+      .var-header .col-key { font-family: ui-monospace, "SF Mono", Menlo,
+                                          Consolas, monospace;
+                             font-size: 11px; font-weight: 500; color: #777;
+                             margin-left: 8px; background: #F4F4F4;
+                             padding: 1px 6px; border-radius: 3px; }
       .grid { display: grid;
-              grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-              gap: 14px; }
+              grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+              gap: 12px; }
       .card { border: 1px solid #DDD; border-radius: 6px; padding: 8px;
               background: #FFF; }
       .card img { width: 100%; height: auto; display: block;
                   border-radius: 4px; background: #FFF; }
       .card .meta { font-size: 12px; color: #555; margin-top: 6px;
                     line-height: 1.4; }
+      .card .year { font-weight: 600; color: #222; }
+      .card .range { color: #777; }
       footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #DDD;
                font-size: 12px; color: #777; }
       footer a { color: #2E74B5; text-decoration: none; }
@@ -75,9 +88,9 @@
 <h1>DE-SynPUF Atlas</h1>
 <p class='tagline'>Population &amp; environmental choropleths at H3 res-4 and ZIP5, overlaid with DE-SynPUF beneficiary exposure distributions. Built from <a href='https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files'>CMS DE-SynPUF</a> synthetic Medicare claims joined to public reference data via the <a href='https://github.com/axleinfo/desynpuf-zip'>desynpuf-link</a> pipeline.</p>
 <div class='meta'>
-<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 9 (acs, pm25_lur, ozone_lur, aqs, landscan, worldpop, svi, walkability, nlcd) · <strong>Maps:</strong> 146 on disk (50 rendered this run, 106 skipped, 0 failed)
+<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 9 (acs, pm25_lur, ozone_lur, aqs, landscan, worldpop, svi, walkability, nlcd) · <strong>Maps:</strong> 146 on disk (0 rendered this run, 156 skipped, 0 failed)
 </div>
-<div class='meta'><strong>Generated:</strong> 2026-06-05 17:26 UTC</div>
+<div class='meta'><strong>Generated:</strong> 2026-06-05 17:38 UTC</div>
 <div class='links'>
 <a href='manifest.csv'>manifest.csv</a>
 <a href='https://github.com/axleinfo/desynpuf-zip'>source pipeline</a>
@@ -104,71 +117,167 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>Total population (ACS estimate)<span class='col-key'>total_population</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2018.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2019.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2018.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2019.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2018.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2019.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2018.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2019.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/median_home_value_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2018.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2019.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2018.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2019.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2018.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2019.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2018.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2019.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2018.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2018.png' alt='total_population'></a><div class='meta'>total_population · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2019.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2019.png' alt='total_population'></a><div class='meta'>total_population · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/total_population_2020.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2018.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2019.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2018.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2018.png' alt='Total population (ACS estimate) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2019.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2019.png' alt='Total population (ACS estimate) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/total_population_2020.png'><img loading='lazy' src='maps/h3_res4/acs/total_population_2020.png' alt='Total population (ACS estimate) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Poverty rate (% of population)<span class='col-key'>poverty_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2018.png' alt='Poverty rate (% of population) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2019.png' alt='Poverty rate (% of population) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/poverty_rate_2020.png' alt='Poverty rate (% of population) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Uninsured rate (% of population)<span class='col-key'>uninsured_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2018.png' alt='Uninsured rate (% of population) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2019.png' alt='Uninsured rate (% of population) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/uninsured_rate_2020.png' alt='Uninsured rate (% of population) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median household income ($)<span class='col-key'>median_hh_income</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2018.png' alt='Median household income ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2019.png' alt='Median household income ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_hh_income_2020.png' alt='Median household income ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median gross rent ($)<span class='col-key'>median_gross_rent</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2018.png' alt='Median gross rent ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2019.png' alt='Median gross rent ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_gross_rent_2020.png' alt='Median gross rent ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median home value ($)<span class='col-key'>median_home_value</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2018.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2018.png' alt='Median home value ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2019.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2019.png' alt='Median home value ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/median_home_value_2020.png'><img loading='lazy' src='maps/h3_res4/acs/median_home_value_2020.png' alt='Median home value ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Per-capita income ($)<span class='col-key'>per_capita_income</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2018.png' alt='Per-capita income ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2019.png' alt='Per-capita income ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/h3_res4/acs/per_capita_income_2020.png' alt='Per-capita income ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Bachelor&#x27;s degree or higher (%)<span class='col-key'>bachelors_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2018.png' alt='Bachelor&#x27;s degree or higher (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2019.png' alt='Bachelor&#x27;s degree or higher (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/h3_res4/acs/bachelors_rate_2020.png' alt='Bachelor&#x27;s degree or higher (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Owner-occupied housing (%)<span class='col-key'>owner_occupied_pct</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2018.png' alt='Owner-occupied housing (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2019.png' alt='Owner-occupied housing (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/owner_occupied_pct_2020.png' alt='Owner-occupied housing (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Non-English speakers at home (%)<span class='col-key'>non_english_pct</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2018.png' alt='Non-English speakers at home (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2019.png' alt='Non-English speakers at home (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/h3_res4/acs/non_english_pct_2020.png' alt='Non-English speakers at home (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>Total population (ACS estimate)<span class='col-key'>total_population</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2018.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2018 · [0 – 83]</div></div>
-<div class='card'><a href='maps/zip5/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2019.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2020.png' alt='bachelors_rate'></a><div class='meta'>bachelors_rate · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2018.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2018 · [2.5e+02 – 3.5e+03]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2019.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2019 · [2.5e+02 – 3.5e+03]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2020.png' alt='median_gross_rent'></a><div class='meta'>median_gross_rent · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2018.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2018 · [4.4e+03 – 2.5e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2019.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2019 · [6.6e+03 – 2.5e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2020.png' alt='median_hh_income'></a><div class='meta'>median_hh_income · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/median_home_value_2018.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2018.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2018 · [1e+04 – 2e+06]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_home_value_2019.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2019.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2019 · [1e+04 – 2e+06]</div></div>
-<div class='card'><a href='maps/zip5/acs/median_home_value_2020.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2020.png' alt='median_home_value'></a><div class='meta'>median_home_value · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2018.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2018 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2019.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2019 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2020.png' alt='non_english_pct'></a><div class='meta'>non_english_pct · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2018.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2018 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2019.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2020.png' alt='owner_occupied_pct'></a><div class='meta'>owner_occupied_pct · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2018.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2018 · [1.5e+03 – 1.7e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2019.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2019 · [1.7e+03 – 1.9e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2020.png' alt='per_capita_income'></a><div class='meta'>per_capita_income · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2018.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2018 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2019.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2020.png' alt='poverty_rate'></a><div class='meta'>poverty_rate · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/total_population_2018.png'><img loading='lazy' src='maps/zip5/acs/total_population_2018.png' alt='total_population'></a><div class='meta'>total_population · 2018 · [0 – 1e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/total_population_2019.png'><img loading='lazy' src='maps/zip5/acs/total_population_2019.png' alt='total_population'></a><div class='meta'>total_population · 2019 · [0 – 1.1e+05]</div></div>
-<div class='card'><a href='maps/zip5/acs/total_population_2020.png'><img loading='lazy' src='maps/zip5/acs/total_population_2020.png' alt='total_population'></a><div class='meta'>total_population · 2020</div></div>
-<div class='card'><a href='maps/zip5/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2018.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2018 · [0 – 61]</div></div>
-<div class='card'><a href='maps/zip5/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2019.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2019 · [0 – 66]</div></div>
-<div class='card'><a href='maps/zip5/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2020.png' alt='uninsured_rate'></a><div class='meta'>uninsured_rate · 2020</div></div>
+<div class='card'><a href='maps/zip5/acs/total_population_2018.png'><img loading='lazy' src='maps/zip5/acs/total_population_2018.png' alt='Total population (ACS estimate) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/total_population_2019.png'><img loading='lazy' src='maps/zip5/acs/total_population_2019.png' alt='Total population (ACS estimate) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/total_population_2020.png'><img loading='lazy' src='maps/zip5/acs/total_population_2020.png' alt='Total population (ACS estimate) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Poverty rate (% of population)<span class='col-key'>poverty_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/poverty_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2018.png' alt='Poverty rate (% of population) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/poverty_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2019.png' alt='Poverty rate (% of population) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/poverty_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/poverty_rate_2020.png' alt='Poverty rate (% of population) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Uninsured rate (% of population)<span class='col-key'>uninsured_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/uninsured_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2018.png' alt='Uninsured rate (% of population) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/uninsured_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2019.png' alt='Uninsured rate (% of population) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/uninsured_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/uninsured_rate_2020.png' alt='Uninsured rate (% of population) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median household income ($)<span class='col-key'>median_hh_income</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/median_hh_income_2018.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2018.png' alt='Median household income ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_hh_income_2019.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2019.png' alt='Median household income ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_hh_income_2020.png'><img loading='lazy' src='maps/zip5/acs/median_hh_income_2020.png' alt='Median household income ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median gross rent ($)<span class='col-key'>median_gross_rent</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/median_gross_rent_2018.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2018.png' alt='Median gross rent ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_gross_rent_2019.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2019.png' alt='Median gross rent ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_gross_rent_2020.png'><img loading='lazy' src='maps/zip5/acs/median_gross_rent_2020.png' alt='Median gross rent ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Median home value ($)<span class='col-key'>median_home_value</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/median_home_value_2018.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2018.png' alt='Median home value ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_home_value_2019.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2019.png' alt='Median home value ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/median_home_value_2020.png'><img loading='lazy' src='maps/zip5/acs/median_home_value_2020.png' alt='Median home value ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Per-capita income ($)<span class='col-key'>per_capita_income</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/per_capita_income_2018.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2018.png' alt='Per-capita income ($) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/per_capita_income_2019.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2019.png' alt='Per-capita income ($) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/per_capita_income_2020.png'><img loading='lazy' src='maps/zip5/acs/per_capita_income_2020.png' alt='Per-capita income ($) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Bachelor&#x27;s degree or higher (%)<span class='col-key'>bachelors_rate</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/bachelors_rate_2018.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2018.png' alt='Bachelor&#x27;s degree or higher (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/bachelors_rate_2019.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2019.png' alt='Bachelor&#x27;s degree or higher (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/bachelors_rate_2020.png'><img loading='lazy' src='maps/zip5/acs/bachelors_rate_2020.png' alt='Bachelor&#x27;s degree or higher (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Owner-occupied housing (%)<span class='col-key'>owner_occupied_pct</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2018.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2018.png' alt='Owner-occupied housing (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2019.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2019.png' alt='Owner-occupied housing (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/owner_occupied_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/owner_occupied_pct_2020.png' alt='Owner-occupied housing (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Non-English speakers at home (%)<span class='col-key'>non_english_pct</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/acs/non_english_pct_2018.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2018.png' alt='Non-English speakers at home (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/acs/non_english_pct_2019.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2019.png' alt='Non-English speakers at home (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/acs/non_english_pct_2020.png'><img loading='lazy' src='maps/zip5/acs/non_english_pct_2020.png' alt='Non-English speakers at home (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -182,23 +291,39 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2018.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2018 · [1.6 – 37]</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2019.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2019 · [1.1 – 37]</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='pm25_lur__pm25_mean'></a><div class='meta'>pm25_lur__pm25_mean · 2020</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2018.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2018 · [4.7 – 1.4e+02]</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2019.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2019 · [4.2 – 45]</div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='pm25_lur__pm25_p98'></a><div class='meta'>pm25_lur__pm25_p98 · 2020</div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -212,23 +337,39 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2018.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2018 · [0.024 – 0.062]</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2019.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2019 · [0.023 – 0.059]</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='ozone_lur__o3_mean'></a><div class='meta'>ozone_lur__o3_mean · 2020</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2018.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2018 · [0.038 – 0.1]</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2019.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2019 · [0.035 – 0.11]</div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='ozone_lur__o3_p98'></a><div class='meta'>ozone_lur__o3_p98 · 2020</div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -242,23 +383,39 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>AQS PM₂.₅ annual mean (µg/m³)<span class='col-key'>aqs__pm25_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2018.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2019.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2018.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2019.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2018.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2019.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/pm25_mean_2020.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>AQS ozone annual mean (ppm)<span class='col-key'>aqs__o3_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2018.png' alt='AQS ozone annual mean (ppm) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2019.png' alt='AQS ozone annual mean (ppm) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/aqs/o3_mean_2020.png' alt='AQS ozone annual mean (ppm) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>AQS PM₂.₅ annual mean (µg/m³)<span class='col-key'>aqs__pm25_mean</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2018.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2018 · [0.025 – 0.058]</div></div>
-<div class='card'><a href='maps/zip5/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2019.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2019 · [0.026 – 0.058]</div></div>
-<div class='card'><a href='maps/zip5/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2020.png' alt='aqs__o3_mean'></a><div class='meta'>aqs__o3_mean · 2020</div></div>
-<div class='card'><a href='maps/zip5/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2018.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2018 · [3.3 – 17]</div></div>
-<div class='card'><a href='maps/zip5/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2019.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2019 · [1.2 – 15]</div></div>
-<div class='card'><a href='maps/zip5/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2020.png' alt='aqs__pm25_mean'></a><div class='meta'>aqs__pm25_mean · 2020</div></div>
+<div class='card'><a href='maps/zip5/aqs/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2018.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/aqs/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2019.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/aqs/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/pm25_mean_2020.png' alt='AQS PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>AQS ozone annual mean (ppm)<span class='col-key'>aqs__o3_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2018.png' alt='AQS ozone annual mean (ppm) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2019.png' alt='AQS ozone annual mean (ppm) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2020.png' alt='AQS ozone annual mean (ppm) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -272,23 +429,39 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2018.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2018 · [0 – 1.1e+05]</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2019.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2019 · [0 – 1.2e+05]</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='landscan__pop_density'></a><div class='meta'>landscan__pop_density · 2020</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2018.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2018 · [0 – 1.5e+05]</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2019.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2019 · [0 – 1.6e+05]</div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='landscan__pop_sum'></a><div class='meta'>landscan__pop_sum · 2020</div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -302,17 +475,23 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>WorldPop population density (people/km²)<span class='col-key'>worldpop__pop_density</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2018.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2019.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2018.png' alt='WorldPop population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2019.png' alt='WorldPop population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/worldpop/pop_density_2020.png' alt='WorldPop population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>WorldPop population density (people/km²)<span class='col-key'>worldpop__pop_density</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2018.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2018 · [0 – 5.8e+04]</div></div>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2019.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2019 · [0 – 5.9e+04]</div></div>
-<div class='card'><a href='maps/zip5/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2020.png' alt='worldpop__pop_density'></a><div class='meta'>worldpop__pop_density · 2020</div></div>
+<div class='card'><a href='maps/zip5/worldpop/pop_density_2018.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2018.png' alt='WorldPop population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/worldpop/pop_density_2019.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2019.png' alt='WorldPop population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/worldpop/pop_density_2020.png'><img loading='lazy' src='maps/zip5/worldpop/pop_density_2020.png' alt='WorldPop population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -322,9 +501,17 @@
 <div class='src-body'>
 <p class='src-desc'>Census-tract rankings of social vulnerability published by the CDC, organised into four themes (socioeconomic, household composition, racial/ethnic minority, housing/transportation) plus an overall ranking. 2018 and 2020 vintages; CDC did not release a 2019 file.</p>
 <div class='grain-panel' data-grain='zip5'>
+<div class='var-group'>
+<div class='var-header'>SVI overall ranking (0–1)<span class='col-key'>svi__themes_rpl</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/svi/theme1_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/theme1_rpl_2018.png' alt='svi__theme1_rpl'></a><div class='meta'>svi__theme1_rpl · 2018 · [0 – 1]</div></div>
-<div class='card'><a href='maps/zip5/svi/themes_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/themes_rpl_2018.png' alt='svi__themes_rpl'></a><div class='meta'>svi__themes_rpl · 2018 · [0 – 1]</div></div>
+<div class='card'><a href='maps/zip5/svi/themes_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/themes_rpl_2018.png' alt='SVI overall ranking (0–1) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>SVI socioeconomic theme (0–1)<span class='col-key'>svi__theme1_rpl</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/svi/theme1_rpl_2018.png'><img loading='lazy' src='maps/zip5/svi/theme1_rpl_2018.png' alt='SVI socioeconomic theme (0–1) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -338,23 +525,39 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2018.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2018 · [1 – 20]</div></div>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2019.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2019 · [1 – 20]</div></div>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='walkability__natwalkind_derived'></a><div class='meta'>walkability__natwalkind_derived · 2020</div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2018.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2018 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2019.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='walkability__no_transit_mean'></a><div class='meta'>walkability__no_transit_mean · 2020</div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -368,29 +571,55 @@
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>Developed land cover (%)<span class='col-key'>nlcd__developed_frac</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2018.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2019.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2018.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2019.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2018.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2018</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2019.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2019</div></div>
-<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020</div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2018.png' alt='Developed land cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2019.png' alt='Developed land cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/developed_frac_2020.png' alt='Developed land cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Forest land cover (%)<span class='col-key'>nlcd__forest_frac</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2018.png' alt='Forest land cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2019.png' alt='Forest land cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/forest_frac_2020.png' alt='Forest land cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Cultivated crops cover (%)<span class='col-key'>nlcd__crop_frac</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2018.png' alt='Cultivated crops cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2019.png' alt='Cultivated crops cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/h3_res4/nlcd/crop_frac_2020.png' alt='Cultivated crops cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>Developed land cover (%)<span class='col-key'>nlcd__developed_frac</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2018.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2018 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2019.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2019 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2020.png' alt='nlcd__crop_frac'></a><div class='meta'>nlcd__crop_frac · 2020</div></div>
-<div class='card'><a href='maps/zip5/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2018.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2018 · [0.036 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2019.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2019 · [0 – 1e+02]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2020.png' alt='nlcd__developed_frac'></a><div class='meta'>nlcd__developed_frac · 2020</div></div>
-<div class='card'><a href='maps/zip5/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2018.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2018 · [0 – 99]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2019.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2019 · [0 – 98]</div></div>
-<div class='card'><a href='maps/zip5/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2020.png' alt='nlcd__forest_frac'></a><div class='meta'>nlcd__forest_frac · 2020</div></div>
+<div class='card'><a href='maps/zip5/nlcd/developed_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2018.png' alt='Developed land cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/developed_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2019.png' alt='Developed land cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/developed_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/developed_frac_2020.png' alt='Developed land cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Forest land cover (%)<span class='col-key'>nlcd__forest_frac</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/nlcd/forest_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2018.png' alt='Forest land cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/forest_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2019.png' alt='Forest land cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/forest_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/forest_frac_2020.png' alt='Forest land cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Cultivated crops cover (%)<span class='col-key'>nlcd__crop_frac</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2018.png' alt='Cultivated crops cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2019.png' alt='Cultivated crops cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2020.png' alt='Cultivated crops cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
 </div>
 </div>
 </div>
