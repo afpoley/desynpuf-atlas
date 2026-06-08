@@ -88,9 +88,9 @@
 <h1>DE-SynPUF Atlas</h1>
 <p class='tagline'>Population &amp; environmental choropleths at H3 res-4 and ZIP5, overlaid with DE-SynPUF beneficiary exposure distributions. Built from <a href='https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files'>CMS DE-SynPUF</a> synthetic Medicare claims joined to public reference data via the <a href='https://github.com/axleinfo/desynpuf-zip'>desynpuf-link</a> pipeline.</p>
 <div class='meta'>
-<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 8 (acs, aqs, gridmet, landscan, nlcd, ozone_lur, pm25_lur, walkability) · <strong>Maps:</strong> 162 on disk (0 rendered this run, 162 skipped, 0 failed)
+<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 9 (acs, aqs, gridmet, landscan, nlcd, ozone_lur, pm25_lur, svi, walkability) · <strong>Maps:</strong> 175 on disk (13 rendered this run, 177 skipped, 2 failed)
 </div>
-<div class='meta'><strong>Generated:</strong> 2026-06-08 13:55 UTC</div>
+<div class='meta'><strong>Generated:</strong> 2026-06-08 14:38 UTC</div>
 <div class='links'>
 <a href='manifest.csv'>manifest.csv</a>
 <a href='https://github.com/axleinfo/desynpuf-zip'>source pipeline</a>
@@ -104,6 +104,7 @@
 <a href='#src-nlcd'>NLCD National Land Cover Database</a>
 <a href='#src-ozone_lur'>Ozone Land-Use Regression</a>
 <a href='#src-pm25_lur'>PM₂.₅ Land-Use Regression</a>
+<a href='#src-svi'>CDC Social Vulnerability Index (SVI)</a>
 <a href='#src-walkability'>EPA Walkability Index</a>
 </div>
 </header>
@@ -600,6 +601,78 @@
 <div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
 <div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
 <div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details class='source' id='src-svi' open>
+<summary><span>CDC Social Vulnerability Index (SVI)</span><span class='src-key'>svi</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Census-tract rankings of social vulnerability published by the CDC, organised into four themes (socioeconomic, household composition, racial/ethnic minority, housing/transportation) plus an overall ranking. RPL values are 0–1 percentile ranks; higher = more vulnerable. CDC publishes biennially, so 2019, 2021, 2023 don&#x27;t exist.</p>
+<div class='grain-tabs'>
+<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
+<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
+</div>
+<div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>% population below 150% poverty<span class='col-key'>svi__pov150_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/svi/pov150_ep_2020.png'><img loading='lazy' src='maps/h3_res4/svi/pov150_ep_2020.png' alt='% population below 150% poverty 2020'></a><div class='meta'><span class='year'>2020</span> · <span class='range'>[0 – 1e+02]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population age 65+<span class='col-key'>svi__age65_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/svi/age65_ep_2018.png'><img loading='lazy' src='maps/h3_res4/svi/age65_ep_2018.png' alt='% population age 65+ 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 72]</span></div></div>
+<div class='card'><a href='maps/h3_res4/svi/age65_ep_2020.png'><img loading='lazy' src='maps/h3_res4/svi/age65_ep_2020.png' alt='% population age 65+ 2020'></a><div class='meta'><span class='year'>2020</span> · <span class='range'>[0 – 72]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population with disability<span class='col-key'>svi__disabl_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/svi/disabl_ep_2018.png'><img loading='lazy' src='maps/h3_res4/svi/disabl_ep_2018.png' alt='% population with disability 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 57]</span></div></div>
+<div class='card'><a href='maps/h3_res4/svi/disabl_ep_2020.png'><img loading='lazy' src='maps/h3_res4/svi/disabl_ep_2020.png' alt='% population with disability 2020'></a><div class='meta'><span class='year'>2020</span> · <span class='range'>[0 – 62]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population identifying as minority<span class='col-key'>svi__minrty_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/svi/minrty_ep_2018.png'><img loading='lazy' src='maps/h3_res4/svi/minrty_ep_2018.png' alt='% population identifying as minority 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0.2 – 1e+02]</span></div></div>
+<div class='card'><a href='maps/h3_res4/svi/minrty_ep_2020.png'><img loading='lazy' src='maps/h3_res4/svi/minrty_ep_2020.png' alt='% population identifying as minority 2020'></a><div class='meta'><span class='year'>2020</span> · <span class='range'>[0 – 1e+02]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population with limited English<span class='col-key'>svi__limeng_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/svi/limeng_ep_2018.png'><img loading='lazy' src='maps/h3_res4/svi/limeng_ep_2018.png' alt='% population with limited English 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 42]</span></div></div>
+<div class='card'><a href='maps/h3_res4/svi/limeng_ep_2020.png'><img loading='lazy' src='maps/h3_res4/svi/limeng_ep_2020.png' alt='% population with limited English 2020'></a><div class='meta'><span class='year'>2020</span> · <span class='range'>[0 – 41]</span></div></div>
+</div>
+</div>
+</div>
+<div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>% population age 65+<span class='col-key'>svi__age65_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/svi/age65_ep_2018.png'><img loading='lazy' src='maps/zip5/svi/age65_ep_2018.png' alt='% population age 65+ 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 79]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population with disability<span class='col-key'>svi__disabl_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/svi/disabl_ep_2018.png'><img loading='lazy' src='maps/zip5/svi/disabl_ep_2018.png' alt='% population with disability 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 76]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population identifying as minority<span class='col-key'>svi__minrty_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/svi/minrty_ep_2018.png'><img loading='lazy' src='maps/zip5/svi/minrty_ep_2018.png' alt='% population identifying as minority 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 1e+02]</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>% population with limited English<span class='col-key'>svi__limeng_ep</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/svi/limeng_ep_2018.png'><img loading='lazy' src='maps/zip5/svi/limeng_ep_2018.png' alt='% population with limited English 2018'></a><div class='meta'><span class='year'>2018</span> · <span class='range'>[0 – 48]</span></div></div>
 </div>
 </div>
 </div>

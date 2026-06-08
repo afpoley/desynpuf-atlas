@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/bulk.py", line 298, in render_one
+    fig = render_from_files(
+          ^^^^^^^^^^^^^^^^^^
+  File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/choropleth.py", line 456, in render_from_files
+    values = load_value_series(value_parquet, value_column, year=year)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/choropleth.py", line 97, in load_value_series
+    raise ValueError(
+ValueError: /Users/andrew.poley/Documents/GitHub/tf_nf/data/N3C/aggregated/annual/svi/census_2010_zip5_2010_2018.parquet: no 'svi__pov150_ep' column; got ['cone_id', 'n_source_zones', 'svi__pov_e', 'svi__unemp_e', 'svi__nohsdp_e', 'svi__age65_e', 'svi__age17_e', 'svi__sngpnt_e', 'svi__disabl_e', 'svi__minrty_e', 'svi__limeng_e', 'svi__munit_e', 'svi__mobile_e', 'svi__crowd_e', 'svi__noveh_e', 'svi__groupq_e', 'svi__pov_d', 'svi__unemp_d', 'svi__nohsdp_d', 'svi__age65_d', 'svi__age17_d', 'svi__sngpnt_d', 'svi__disabl_d', 'svi__minrty_d', 'svi__limeng_d', 'svi__munit_d', 'svi__mobile_d', 'svi__crowd_d', 'svi__noveh_d', 'svi__groupq_d', 'svi__totpop_e', 'svi__hu_e', 'svi__hh_e', 'svi__daypop_e', 'svi__pci_e', 'svi__pov_ep', 'svi__unemp_ep', 'svi__nohsdp_ep', 'svi__age65_ep', 'svi__age17_ep', 'svi__sngpnt_ep', 'svi__disabl_ep', 'svi__minrty_ep', 'svi__limeng_ep', 'svi__munit_ep', 'svi__mobile_ep', 'svi__crowd_ep', 'svi__noveh_ep', 'svi__groupq_ep', 'svi__pci_ep', 'svi__pov_epl', 'svi__unemp_epl', 'svi__pci_epl', 'svi__nohsdp_epl', 'svi__age65_epl', 'svi__age17_epl', 'svi__sngpnt_epl', 'svi__disabl_epl', 'svi__minrty_epl', 'svi__limeng_epl', 'svi__munit_epl', 'svi__mobile_epl', 'svi__crowd_epl', 'svi__noveh_epl', 'svi__groupq_epl', 'svi__theme1_spl', 'svi__theme1_rpl', 'svi__theme2_spl', 'svi__theme2_rpl', 'svi__theme3_spl', 'svi__theme3_rpl', 'svi__theme4_spl', 'svi__theme4_rpl', 'svi__themes_spl', 'svi__themes_rpl', 'year']
