@@ -88,9 +88,9 @@
 <h1>DE-SynPUF Atlas</h1>
 <p class='tagline'>Population &amp; environmental choropleths at H3 res-4 and ZIP5, overlaid with DE-SynPUF beneficiary exposure distributions. Built from <a href='https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-claims-synthetic-public-use-files'>CMS DE-SynPUF</a> synthetic Medicare claims joined to public reference data via the <a href='https://github.com/axleinfo/desynpuf-zip'>desynpuf-link</a> pipeline.</p>
 <div class='meta'>
-<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 8 (acs, pm25_lur, ozone_lur, aqs, landscan, gridmet, walkability, nlcd) · <strong>Maps:</strong> 162 on disk (0 rendered this run, 162 skipped, 0 failed)
+<strong>Grains:</strong> h3_res4, zip5 · <strong>Years:</strong> 2018–2020 · <strong>Sources:</strong> 8 (acs, aqs, gridmet, landscan, nlcd, ozone_lur, pm25_lur, walkability) · <strong>Maps:</strong> 162 on disk (0 rendered this run, 162 skipped, 0 failed)
 </div>
-<div class='meta'><strong>Generated:</strong> 2026-06-05 17:56 UTC</div>
+<div class='meta'><strong>Generated:</strong> 2026-06-08 13:55 UTC</div>
 <div class='links'>
 <a href='manifest.csv'>manifest.csv</a>
 <a href='https://github.com/axleinfo/desynpuf-zip'>source pipeline</a>
@@ -98,13 +98,13 @@
 <div class='toc'>
 <strong>Jump to:</strong> 
 <a href='#src-acs'>American Community Survey (ACS)</a>
-<a href='#src-pm25_lur'>PM₂.₅ Land-Use Regression</a>
-<a href='#src-ozone_lur'>Ozone Land-Use Regression</a>
 <a href='#src-aqs'>EPA Air Quality System (AQS)</a>
-<a href='#src-landscan'>LandScan Global (ORNL)</a>
 <a href='#src-gridmet'>gridMET</a>
-<a href='#src-walkability'>EPA Walkability Index</a>
+<a href='#src-landscan'>LandScan Global (ORNL)</a>
 <a href='#src-nlcd'>NLCD National Land Cover Database</a>
+<a href='#src-ozone_lur'>Ozone Land-Use Regression</a>
+<a href='#src-pm25_lur'>PM₂.₅ Land-Use Regression</a>
+<a href='#src-walkability'>EPA Walkability Index</a>
 </div>
 </header>
 <details class='source' id='src-acs' open>
@@ -281,98 +281,6 @@
 </div>
 </div>
 </details>
-<details class='source' id='src-pm25_lur' open>
-<summary><span>PM₂.₅ Land-Use Regression</span><span class='src-key'>pm25_lur</span></summary>
-<div class='src-body'>
-<p class='src-desc'>Annual fine-particulate-matter (PM₂.₅) exposure model calibrated from EPA AQS monitor observations with NLCD, road network, and traffic covariates. Higher effective resolution than monitor IDW alone; designed for studies that need stable annual exposure surfaces.</p>
-<div class='grain-tabs'>
-<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
-<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
-</div>
-<div class='grain-panel' data-grain='h3_res4'>
-<div class='var-group'>
-<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-<div class='grain-panel' data-grain='zip5' style='display:none'>
-<div class='var-group'>
-<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-</div>
-</details>
-<details class='source' id='src-ozone_lur' open>
-<summary><span>Ozone Land-Use Regression</span><span class='src-key'>ozone_lur</span></summary>
-<div class='src-body'>
-<p class='src-desc'>Annual ground-level ozone exposure from the same LUR framework as PM₂.₅. NAAQS-relevant statistics (mean and 98th percentile) at the cone level.</p>
-<div class='grain-tabs'>
-<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
-<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
-</div>
-<div class='grain-panel' data-grain='h3_res4'>
-<div class='var-group'>
-<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-<div class='grain-panel' data-grain='zip5' style='display:none'>
-<div class='var-group'>
-<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-</div>
-</details>
 <details class='source' id='src-aqs' open>
 <summary><span>EPA Air Quality System (AQS)</span><span class='src-key'>aqs</span></summary>
 <div class='src-body'>
@@ -414,52 +322,6 @@
 <div class='card'><a href='maps/zip5/aqs/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2018.png' alt='AQS ozone annual mean (ppm) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
 <div class='card'><a href='maps/zip5/aqs/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2019.png' alt='AQS ozone annual mean (ppm) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
 <div class='card'><a href='maps/zip5/aqs/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/aqs/o3_mean_2020.png' alt='AQS ozone annual mean (ppm) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-</div>
-</details>
-<details class='source' id='src-landscan' open>
-<summary><span>LandScan Global (ORNL)</span><span class='src-key'>landscan</span></summary>
-<div class='src-body'>
-<p class='src-desc'>Oak Ridge National Lab&#x27;s 1 km ambient-population grid. Captures daytime population (where people actually are, not just where they sleep). Year-specific 2018–2024 — the true yearly population surface used by the rest of the pipeline.</p>
-<div class='grain-tabs'>
-<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
-<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
-</div>
-<div class='grain-panel' data-grain='h3_res4'>
-<div class='var-group'>
-<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-</div>
-<div class='grain-panel' data-grain='zip5' style='display:none'>
-<div class='var-group'>
-<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
-</div>
-</div>
-<div class='var-group'>
-<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
-<div class='grid'>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
@@ -543,47 +405,47 @@
 </div>
 </div>
 </details>
-<details class='source' id='src-walkability' open>
-<summary><span>EPA Walkability Index</span><span class='src-key'>walkability</span></summary>
+<details class='source' id='src-landscan' open>
+<summary><span>LandScan Global (ORNL)</span><span class='src-key'>landscan</span></summary>
 <div class='src-body'>
-<p class='src-desc'>Smart Location Database walkability score, derived from intersection density, transit access, employment mix, and residential density. Static snapshot replicated across years (EPA&#x27;s 2018-ACS / 2017-LEHD vintage); good for cross-sectional contrast, not for trend analysis.</p>
+<p class='src-desc'>Oak Ridge National Lab&#x27;s 1 km ambient-population grid. Captures daytime population (where people actually are, not just where they sleep). Year-specific 2018–2024 — the true yearly population surface used by the rest of the pipeline.</p>
 <div class='grain-tabs'>
 <button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
 <button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
 </div>
 <div class='grain-panel' data-grain='h3_res4'>
 <div class='var-group'>
-<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
+<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 <div class='var-group'>
-<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2018.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2019.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/landscan/pop_density_2020.png'><img loading='lazy' src='maps/h3_res4/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
 <div class='grain-panel' data-grain='zip5' style='display:none'>
 <div class='var-group'>
-<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
+<div class='var-header'>LandScan ambient population<span class='col-key'>landscan__pop_sum</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2018.png' alt='LandScan ambient population 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2019.png' alt='LandScan ambient population 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_sum_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_sum_2020.png' alt='LandScan ambient population 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 <div class='var-group'>
-<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='var-header'>LandScan population density (people/km²)<span class='col-key'>landscan__pop_density</span></div>
 <div class='grid'>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
-<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2018.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2018.png' alt='LandScan population density (people/km²) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2019.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2019.png' alt='LandScan population density (people/km²) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/landscan/pop_density_2020.png'><img loading='lazy' src='maps/zip5/landscan/pop_density_2020.png' alt='LandScan population density (people/km²) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
@@ -646,6 +508,144 @@
 <div class='card'><a href='maps/zip5/nlcd/crop_frac_2018.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2018.png' alt='Cultivated crops cover (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
 <div class='card'><a href='maps/zip5/nlcd/crop_frac_2019.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2019.png' alt='Cultivated crops cover (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
 <div class='card'><a href='maps/zip5/nlcd/crop_frac_2020.png'><img loading='lazy' src='maps/zip5/nlcd/crop_frac_2020.png' alt='Cultivated crops cover (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details class='source' id='src-ozone_lur' open>
+<summary><span>Ozone Land-Use Regression</span><span class='src-key'>ozone_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual ground-level ozone exposure from the same LUR framework as PM₂.₅. NAAQS-relevant statistics (mean and 98th percentile) at the cone level.</p>
+<div class='grain-tabs'>
+<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
+<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
+</div>
+<div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/h3_res4/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+<div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>Ozone annual mean (ppb)<span class='col-key'>ozone_lur__o3_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2018.png' alt='Ozone annual mean (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2019.png' alt='Ozone annual mean (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_mean_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_mean_2020.png' alt='Ozone annual mean (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Ozone 98th percentile (ppb)<span class='col-key'>ozone_lur__o3_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2018.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2018.png' alt='Ozone 98th percentile (ppb) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2019.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2019.png' alt='Ozone 98th percentile (ppb) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/ozone_lur/o3_p98_2020.png'><img loading='lazy' src='maps/zip5/ozone_lur/o3_p98_2020.png' alt='Ozone 98th percentile (ppb) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details class='source' id='src-pm25_lur' open>
+<summary><span>PM₂.₅ Land-Use Regression</span><span class='src-key'>pm25_lur</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Annual fine-particulate-matter (PM₂.₅) exposure model calibrated from EPA AQS monitor observations with NLCD, road network, and traffic covariates. Higher effective resolution than monitor IDW alone; designed for studies that need stable annual exposure surfaces.</p>
+<div class='grain-tabs'>
+<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
+<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
+</div>
+<div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/h3_res4/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+<div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ annual mean (µg/m³)<span class='col-key'>pm25_lur__pm25_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2018.png' alt='PM₂.₅ annual mean (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2019.png' alt='PM₂.₅ annual mean (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_mean_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_mean_2020.png' alt='PM₂.₅ annual mean (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>PM₂.₅ 98th percentile (µg/m³)<span class='col-key'>pm25_lur__pm25_p98</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2018.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2018.png' alt='PM₂.₅ 98th percentile (µg/m³) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2019.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2019.png' alt='PM₂.₅ 98th percentile (µg/m³) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/pm25_lur/pm25_p98_2020.png'><img loading='lazy' src='maps/zip5/pm25_lur/pm25_p98_2020.png' alt='PM₂.₅ 98th percentile (µg/m³) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</details>
+<details class='source' id='src-walkability' open>
+<summary><span>EPA Walkability Index</span><span class='src-key'>walkability</span></summary>
+<div class='src-body'>
+<p class='src-desc'>Smart Location Database walkability score, derived from intersection density, transit access, employment mix, and residential density. Static snapshot replicated across years (EPA&#x27;s 2018-ACS / 2017-LEHD vintage); good for cross-sectional contrast, not for trend analysis.</p>
+<div class='grain-tabs'>
+<button type='button' class='grain-tab active' data-grain='h3_res4'>h3_res4</button>
+<button type='button' class='grain-tab' data-grain='zip5'>zip5</button>
+</div>
+<div class='grain-panel' data-grain='h3_res4'>
+<div class='var-group'>
+<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/h3_res4/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/h3_res4/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+</div>
+<div class='grain-panel' data-grain='zip5' style='display:none'>
+<div class='var-group'>
+<div class='var-header'>National Walkability Index<span class='col-key'>walkability__natwalkind_derived</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2018.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2018.png' alt='National Walkability Index 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2019.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2019.png' alt='National Walkability Index 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/natwalkind_derived_2020.png'><img loading='lazy' src='maps/zip5/walkability/natwalkind_derived_2020.png' alt='National Walkability Index 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
+</div>
+</div>
+<div class='var-group'>
+<div class='var-header'>Population without transit access (%)<span class='col-key'>walkability__no_transit_mean</span></div>
+<div class='grid'>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2018.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2018.png' alt='Population without transit access (%) 2018'></a><div class='meta'><span class='year'>2018</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2019.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2019.png' alt='Population without transit access (%) 2019'></a><div class='meta'><span class='year'>2019</span></div></div>
+<div class='card'><a href='maps/zip5/walkability/no_transit_mean_2020.png'><img loading='lazy' src='maps/zip5/walkability/no_transit_mean_2020.png' alt='Population without transit access (%) 2020'></a><div class='meta'><span class='year'>2020</span></div></div>
 </div>
 </div>
 </div>
