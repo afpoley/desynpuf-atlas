@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/bulk.py", line 298, in render_one
+  File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/bulk.py", line 306, in render_one
     fig = render_from_files(
           ^^^^^^^^^^^^^^^^^^
   File "/Users/andrew.poley/Documents/data/operation_secret_handshake/desynpuf-zip/src/desynpuf_link/viz/choropleth.py", line 456, in render_from_files
